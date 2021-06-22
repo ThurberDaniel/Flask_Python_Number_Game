@@ -6,23 +6,57 @@
     <style>
       body {
         text-align: center;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
       }
       div.box {
         height: 200px;
         width: 200px;
+        border: 2px solid black;
+        display: inline-block;
+        vertical-align: top;
+      }
+      .high {
+        background-color: red;
+      }
+      .low {
+        background-color: red;
+      }
+      .correct {
+        background-color: green;
       }
     </style>
   </head>
   <body>
     <h1>Welcome to the Number Game !</h1>
     <h3>Object of the game is to guess the correct nunber from 1 to 100</h3>
-    <div class="box high"></div>
-    <div class="box correct"></div>
-    <div class="box low"></div>
+    <div class="box high">
+      <p>Guess is too HIGH</p>
+    </div>
+    <div class="box correct">
+      <p>You have guessed correctly!</p>
+    </div>
+    <div class="box low">Guess is too LOW</div>
 
     <form action="" method="POST">
-      <input type="number" name="guess" /><br />
+      <input type="number" min="1" name="guess" /><br />
       <input type="submit" value="Sumbit!" />
+    </form>
+    <br /><br />
+    <form action="" method="POST">
+      <button type="button" value="Sumbit">Reset Game</button>
     </form>
   </body>
 </html>
