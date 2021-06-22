@@ -1,4 +1,4 @@
-from flask import Flask, session, render, render_template, request, redirect
+from flask import Flask, session, render, render_template, request, redirect, random
 app = Flask(_name_)
 
 app.secret_key = "09h8rgtiywbecTHUNDERnihfgDANIELq7uyiwueb"
@@ -13,8 +13,17 @@ def index():
 def guess():
     if 'random' not in session:
         session['random'] = random.randrange(1, 101)
-    print '*** RANDOM GENERATED NUMBER ***', session['radnom']
-    print request.form['guess']
+    guess = request.form['guess']
+    # print '*** RANDOM GENERATED NUMBER ***', session['radnom']
+    # print request.form['guess']
+
+    if guess < session['random']:
+        session['guess'] = "low"
+    elif guess > session['random']:
+        session['guess'] = 'high'
+    else
+    session['guess'] = 'correct'
+
     return redirect('/')
 
 

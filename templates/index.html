@@ -42,6 +42,9 @@
   <body>
     <h1>Welcome to the Number Game !</h1>
     <h3>Object of the game is to guess the correct nunber from 1 to 100</h3>
+    {% if session['guess'] %} {% if session ['guess'] == 'low' %} {% elif
+    session['guess'] == 'high' %} {% elif session['guess'] == '' %} {% endif %}
+
     <div class="box high">
       <p>Guess is too HIGH</p>
     </div>
