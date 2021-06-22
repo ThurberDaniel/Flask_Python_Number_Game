@@ -27,4 +27,10 @@ def guess():
     return redirect('/')
 
 
+@app.route('/reset', methods=['POST'])
+def reset():
+    session.clear()
+    return redirect('/')
+
+
 app.run(debug=True)

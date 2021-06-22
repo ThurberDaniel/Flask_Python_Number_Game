@@ -42,23 +42,25 @@
   <body>
     <h1>Welcome to the Number Game !</h1>
     <h3>Object of the game is to guess the correct nunber from 1 to 100</h3>
-    {% if session['guess'] %} {% if session ['guess'] == 'low' %} {% elif
-    session['guess'] == 'high' %} {% elif session['guess'] == '' %} {% endif %}
+    {% if session['guess'] %} {% if session ['guess'] == 'low' %}
+    <div class="box low">Guess is too LOW</div>
 
+    {% elif session['guess'] == 'high' %}
     <div class="box high">
       <p>Guess is too HIGH</p>
     </div>
+    {% elif session['guess'] == 'correct' %}
     <div class="box correct">
       <p>You have guessed correctly!</p>
     </div>
-    <div class="box low">Guess is too LOW</div>
-
+    {% endif %} {% endif %} {% if session['guess'] != 'correct' %}
     <form action="/guess" method="POST">
       <input type="number" min="1" name="guess" /><br />
       <input type="submit" value="Sumbit!" />
     </form>
+    {% endif %}
     <br /><br />
-    <form action="" method="POST">
+    <form action="reset" method="POST">
       <button type="button" value="Sumbit">Reset Game</button>
     </form>
   </body>
