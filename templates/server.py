@@ -9,4 +9,13 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/guess', ['POST'])
+def guess():
+    if 'random' not in session:
+        session['random'] = random.randrange(1, 101)
+    print '*** RANDOM GENERATED NUMBER ***', session['radnom']
+    print request.form['guess']
+    return redirect('/')
+
+
 app.run(debug=True)
